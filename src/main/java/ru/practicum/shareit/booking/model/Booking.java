@@ -6,7 +6,7 @@ import ru.practicum.shareit.user.model.User;
 import java.time.LocalDateTime;
 
 /**
- * TODO Sprint add-bookings.
+ * Добавлена информация о книгах
  */
 public class Booking {
     private Long id;

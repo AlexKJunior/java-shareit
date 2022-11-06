@@ -10,7 +10,6 @@ import javax.validation.Valid;
 
 @Component
 @Validated
-
 public class UserMapper implements Mappers<UserDto, User> {
 
     @Override

@@ -10,18 +10,17 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * TODO Sprint add-controllers.
+ * Добавлены контроллеры.
  */
 @RestController
 @AllArgsConstructor
 @RequestMapping(path = "/users")
-public class UserController implements Controllers<UserDto> {
+class UserController implements Controllers<UserDto> {
     Services<UserDto> services;
 
     @Override
     @PostMapping
     public UserDto add(@RequestBody @Valid UserDto userDto) {
-        System.out.println("controller");
         return services.add(userDto);
     }
 

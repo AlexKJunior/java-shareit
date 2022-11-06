@@ -22,6 +22,10 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class ItemService implements Services<ItemDto> {
+    /**
+     * Вынесено в константу
+     */
+    public static final String STRING_CONSTANT = "Список объектов успешно получен.";
     private final ItemStorage itemStorage;
     private final Storages<User> userStorage;
     private final Mappers<ItemDto, Item> itemMapper;
@@ -81,14 +85,14 @@ public class ItemService implements Services<ItemDto> {
     public List<ItemDto> getAll() {
         List<Item> listOfItems = itemStorage.getAll();
         List<ItemDto> listOfItemDto = listOfItems.stream().map(itemMapper::toDto).collect(Collectors.toList());
-        log.info("Список объектов успешно получен.");
+        log.info(STRING_CONSTANT);
         return listOfItemDto;
     }
 
     public List<ItemDto> getAll(Long userId) {
         List<Item> listOfItems = itemStorage.getAll(userId);
         List<ItemDto> listOfItemDto = listOfItems.stream().map(itemMapper::toDto).collect(Collectors.toList());
-        log.info("Список объектов успешно получен.");
+        log.info(STRING_CONSTANT);
         return listOfItemDto;
     }
 
@@ -98,7 +102,7 @@ public class ItemService implements Services<ItemDto> {
         }
         List<Item> listOfItems = itemStorage.search(text);
         List<ItemDto> listOfItemDto = listOfItems.stream().map(itemMapper::toDto).collect(Collectors.toList());
-        log.info("Список объектов успешно получен.");
+        log.info(STRING_CONSTANT);
         return listOfItemDto;
     }
 

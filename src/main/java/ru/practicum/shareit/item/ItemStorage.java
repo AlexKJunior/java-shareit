@@ -73,7 +73,7 @@ public class ItemStorage implements Storages<Item> {
         return mapOfItems.containsKey(itemId);
     }
 
-    private Long generateItemId() {
+    private static Long generateItemId() {
         return ++itemId;
     }
 }
