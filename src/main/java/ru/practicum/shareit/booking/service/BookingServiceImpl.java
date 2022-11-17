@@ -16,10 +16,13 @@ import ru.practicum.shareit.item.model.Item;
 import ru.practicum.shareit.item.service.ItemServiceImpl;
 import ru.practicum.shareit.user.service.UserServiceImpl;
 
+import javax.validation.constraints.NotNull;
+
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import javax.transaction.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -30,6 +33,7 @@ public class BookingServiceImpl implements BookingService {
     private final UserServiceImpl userServiceImpl;
     private final ItemServiceImpl itemServiceImpl;
 
+    @Transactional
     @Override
     public BookingResponseDto add(BookingRequestDto bookingRequestDto) {
         userServiceImpl.checkIsUserInStorage(bookingRequestDto.getBookerId());
@@ -74,6 +78,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public BookingResponseDto getById(Long userId, Long bookingId) {
         userServiceImpl.checkIsUserInStorage(userId);
         checkIsBookingInStorage(bookingId);
@@ -183,15 +188,16 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
+    @NotNull
     private void checkBookingTime(Booking booking) {
         if (booking.getStart().isBefore(Instant.now())) {
             log.warn(String.format("Некорректное время начала бронирования объекта id=%s.", booking.getBookerId()));
-            throw new ValidationException(String.format("ОНекорректное время начала бронирования объекта id=%s.",
+            throw new ValidationException(String.format("Некорректное время начала бронирования объекта id=%s.",
                     booking.getBookerId()));
         }
         if (booking.getEnd().isBefore(booking.getStart())) {
             log.warn(String.format("Некорректное время окончания бронирования объекта id=%s.", booking.getBookerId()));
-            throw new ValidationException(String.format("ОНекорректное время окончания бронирования объекта id=%s.",
+            throw new ValidationException(String.format("Некорректное время окончания бронирования объекта id=%s.",
                     booking.getBookerId()));
         }
     }

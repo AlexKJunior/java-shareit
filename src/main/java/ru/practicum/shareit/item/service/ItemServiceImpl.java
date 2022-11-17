@@ -57,9 +57,8 @@ public class ItemServiceImpl implements ItemService {
                     itemRequestDto.getId()));
             throw new ObjectNotFoundException(String.format("Информация об объекту itemId=%s не найдена",
                     itemRequestDto.getId()));
-        } else {
-            itemFromStorage = optionalItemFromStorage.get();
         }
+        itemFromStorage = optionalItemFromStorage.get();
         if (!Objects.equals(itemFromStorage.getOwner(), itemRequestDto.getOwner())) {
             log.warn(String.format("У пользователя userId=%s нет прав редактировать объект itemId=%s",
                     itemRequestDto.getOwner(), itemRequestDto.getId()));
@@ -103,9 +102,8 @@ public class ItemServiceImpl implements ItemService {
                     .collect(Collectors.toList());
             log.info("Список объектов успешно получен.");
             return listOfItemResponseDtoForOwners;
-        } else {
-            return Collections.emptyList();
         }
+        return Collections.emptyList();
     }
 
     @Override
