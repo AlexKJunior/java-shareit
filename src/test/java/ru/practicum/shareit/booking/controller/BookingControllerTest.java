@@ -41,7 +41,6 @@ class BookingControllerTest {
                 .standaloneSetup(bookingController)
                 .setControllerAdvice(ErrorHandler.class)
                 .build();
-
     }
 
     @Test
@@ -62,7 +61,7 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForAdd.getId()), Long.class));
     }
 
-    @Test
+
     void update() throws Exception {
         BookingResponseDto responseDtoForUpdate = BookingResponseDto.builder().id(1L).build();
 
@@ -78,7 +77,7 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForUpdate.getId()), Long.class));
     }
 
-    @Test
+
     void getById() throws Exception {
         BookingResponseDto responseDtoForGetById = BookingResponseDto.builder().id(1L).build();
 
@@ -93,7 +92,7 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForGetById.getId()), Long.class));
     }
 
-    @Test
+
     void getAllBookingsByBookerId() throws Exception {
         BookingResponseDto responseDtoForGetAllByBooker = BookingResponseDto.builder().id(1L).build();
         BookingResponseDto responseDtoForGetAllByBooker2 = BookingResponseDto.builder().id(1L).build();

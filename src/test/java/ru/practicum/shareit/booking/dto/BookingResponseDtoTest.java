@@ -40,7 +40,6 @@ class BookingResponseDtoTest {
         assertThat(result).extractingJsonPathStringValue("$.item.name").isEqualTo("ItemName");
         assertThat(result).extractingJsonPathStringValue("$.item.description")
                 .isEqualTo("Item description");
-//        assertThat(result).extractingJsonPathNumberValue("$.item.owner").isEqualTo(3);
         assertThat(result).extractingJsonPathBooleanValue("$.item.available").isEqualTo(true);
         assertThat(result).extractingJsonPathNumberValue("$.item.requestId").isEqualTo(4);
         assertThat(result).extractingJsonPathStringValue("$.booker.name").isEqualTo("UserName");
