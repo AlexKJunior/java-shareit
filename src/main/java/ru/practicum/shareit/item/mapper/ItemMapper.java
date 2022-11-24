@@ -16,6 +16,7 @@ import java.time.Instant;
 import java.util.List;
 
 @Component
+@Validated
 @AllArgsConstructor
 public class ItemMapper {
     private final BookingRepository bookingRepository;
