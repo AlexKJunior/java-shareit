@@ -15,7 +15,7 @@ class CommentResponseDtoTest {
     private JacksonTester<CommentResponseDto> json;
 
     @Test
-    void testCommentResponseDto() throws Exception {
+    void testCommentResponseDtoTest() throws Exception {
         CommentResponseDto commentResponseDto = CommentResponseDto.builder().id(1L).text("Test text")
                 .authorName("Author name").created("2022-10-10 10:10:10").build();
 

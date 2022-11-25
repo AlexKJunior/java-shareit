@@ -15,26 +15,26 @@ class ErrorHandlerTest {
     private final ErrorHandler errorHandler;
 
     @Test
-    void handlerOfValidationException() {
+    void handlerOfValidationExceptionTest() {
         Error error = errorHandler.handlerOfValidationException(new ValidationException("message"));
         Assertions.assertEquals(error.getError(), "message");
     }
 
     @Test
-    void handlerOfConstraintValidationException() {
+    void handlerOfConstraintValidationExceptionTest() {
         Error error = errorHandler.handlerOfConstraintValidationException(new ConstraintViolationException("message",
                 Collections.emptySet()));
         Assertions.assertEquals(error.getError(), "message");
     }
 
     @Test
-    void handlerOfObjectNotFoundException() {
+    void handlerOfObjectNotFoundExceptionTest() {
         Error error = errorHandler.handlerOfObjectNotFoundException(new ObjectNotFoundException("message"));
         Assertions.assertEquals(error.getError(), "message");
     }
 
     @Test
-    void handlerExceptions() {
+    void handlerExceptionsTest() {
         Error error = errorHandler.handlerExceptions(new Exception("message"));
         Assertions.assertEquals(error.getError(), "message");
     }

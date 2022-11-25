@@ -11,13 +11,13 @@ class ItemTest {
     private final Item item3 = item1;
 
     @Test
-    void testEquals() {
+    void testEqualsTest() {
         Assertions.assertEquals(item1, item3);
         Assertions.assertNotEquals(item1, item2);
     }
 
     @Test
-    void testHashCode() {
+    void testHashCodeTest() {
         Assertions.assertEquals(item1.hashCode(), item3.hashCode());
         Assertions.assertNotEquals(item1.hashCode(), item2.hashCode());
     }

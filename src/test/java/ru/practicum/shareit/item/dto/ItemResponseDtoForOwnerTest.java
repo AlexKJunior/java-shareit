@@ -18,7 +18,7 @@ class ItemResponseDtoForOwnerTest {
     private JacksonTester<ItemResponseDto> json;
 
     @Test
-    void testItemResponseDtoForOwner() throws Exception {
+    void testItemResponseDtoForOwnerTest() throws Exception {
         List<CommentResponseDto> comments = List.of(CommentResponseDto.builder().id(11L).text("Text of comment")
                 .authorName("AuthorName").created("2021-10-10 10:10:10").build());
         BookingItemDto lastBooking = BookingItemDto.builder().id(111L).bookerId(222L).build();

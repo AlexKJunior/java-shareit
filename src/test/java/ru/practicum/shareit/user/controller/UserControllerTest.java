@@ -44,7 +44,7 @@ class UserControllerTest {
     }
 
     @Test
-    void add() throws Exception {
+    void addTest() throws Exception {
 
         UserDto userDtoForAdd = UserDto.builder().name("UserName").email("User@email.com").build();
 
@@ -78,7 +78,7 @@ class UserControllerTest {
     }
 
     @Test
-    void update() throws Exception {
+    void updateTest() throws Exception {
         UserDto userDtoForUpdate = UserDto.builder().id(1L).name("UserName").email("User@email.com").build();
         UserDto requestBody = UserDto.builder().name("UserName").email("User@email.com").build();
         UserDto userDtoAfterUpdate = UserDto.builder().id(1L).name("UserName").email("User@email.com").build();
@@ -95,7 +95,7 @@ class UserControllerTest {
     }
 
     @Test
-    void getById() throws Exception {
+    void getByIdTest() throws Exception {
         UserDto userDtoForGetById = UserDto.builder().id(1L).name("UserName").email("User@email.com").build();
 
         when(userService.getById(1L)).thenReturn(userDtoForGetById);
@@ -109,7 +109,7 @@ class UserControllerTest {
     }
 
     @Test
-    void getAll() throws Exception {
+    void getAllTest() throws Exception {
         List<UserDto> result = List.of(
                 UserDto.builder().id(1L).name("UserName").email("User@email.com").build(),
                 UserDto.builder().id(2L).name("UserName2").email("User2@email.com").build()
@@ -126,7 +126,7 @@ class UserControllerTest {
     }
 
     @Test
-    void delete() throws Exception {
+    void deleteTest() throws Exception {
         String result = "Пользователь успешно удален";
 
         when(userService.delete(1L)).thenReturn(result);

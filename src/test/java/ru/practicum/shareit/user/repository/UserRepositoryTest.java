@@ -26,40 +26,40 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    void shouldAddIdWhenSaveNewEntity() {
+    void shouldAddIdWhenSaveNewEntityTest() {
         Assertions.assertNull(user.getId());
         userRepository.save(user);
         Assertions.assertNotNull(user.getId());
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveSameEmails() {
+    void shouldThrowExceptionWhenSaveSameEmailsTest() {
         User user2 = User.builder().name("UserName").email("User@mail.com").build();
         userRepository.save(user);
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> userRepository.save(user2));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullName() {
+    void shouldThrowExceptionWhenSaveNullNameTest() {
         User user = User.builder().email("User@mail.com").build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> userRepository.save(user));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullEmail() {
+    void shouldThrowExceptionWhenSaveNullEmailTest() {
         User user = User.builder().name("UserName").build();
         Assertions.assertThrows(ConstraintViolationException.class, () -> userRepository.save(user));
     }
 
     @Test
-    void shouldGetById() {
+    void shouldGetByIdTest() {
         userRepository.save(user);
         User result = userRepository.findById(user.getId()).get();
         Assertions.assertEquals(user.getId(), result.getId());
     }
 
     @Test
-    void shouldGetAllEntity() {
+    void shouldGetAllEntityTest() {
         User user2 = User.builder().name("UserName2").email("User2@mail.com").build();
         userRepository.save(user);
         userRepository.save(user2);

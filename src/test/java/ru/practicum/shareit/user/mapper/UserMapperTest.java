@@ -19,7 +19,7 @@ class UserMapperTest {
     private final String email = "Test@email.com";
 
     @Test
-    void toUserDto() {
+    void toUserDtoTest() {
         User user = User.builder().id(id).name(name).email(email).build();
         UserDto userDto = userMapper.toUserDto(user);
         Assertions.assertEquals(userDto.getId(), id);
@@ -31,7 +31,7 @@ class UserMapperTest {
     }
 
     @Test
-    void userDtoToEntity() {
+    void userDtoToEntityTest() {
         UserDto userDto = UserDto.builder().id(id).name(name).email(email).build();
         User user = userMapper.userDtoToEntity(userDto);
         Assertions.assertEquals(user.getId(), id);

@@ -36,7 +36,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void add() {
+    void addTest() {
         BookingResponseDto resultOfAdding = bookingService.add(bookingRequestDto);
         Assertions.assertNotNull(resultOfAdding.getId());
         Assertions.assertEquals(itemId, resultOfAdding.getItem().getId());
@@ -45,7 +45,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingOwnerOfItem() {
+    void shouldThrowExceptionWhenAddBookingOwnerOfItemTest() {
         Long ownerOfItem = 1L;
         BookingRequestDto bookingFromOwner = BookingRequestDto.builder().bookerId(ownerOfItem).start(start).end(end)
                 .itemId(itemId).build();
@@ -55,7 +55,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNotExistsBooker() {
+    void shouldThrowExceptionWhenAddBookingWithNotExistsBookerTest() {
         Long notExistsBookerId = 100L;
         BookingRequestDto bookingRequestDtoWithNotExistsBookerId = BookingRequestDto.builder()
                 .bookerId(notExistsBookerId).start(start).end(end).itemId(itemId).build();
@@ -65,7 +65,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNullBooker() {
+    void shouldThrowExceptionWhenAddBookingWithNullBookerTest() {
         Long nullBookerId = null;
         BookingRequestDto bookingRequestDtoWithNullBookerId = BookingRequestDto.builder().bookerId(nullBookerId)
                 .start(start).end(end).itemId(itemId).build();
@@ -75,7 +75,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNotExistsItemId() {
+    void shouldThrowExceptionWhenAddBookingWithNotExistsItemIdTest() {
         Long notExistsItemId = 100L;
         BookingRequestDto bookingRequestDtoWithNotExistsItemId = BookingRequestDto.builder()
                 .bookerId(bookerId).start(start).end(end).itemId(notExistsItemId).build();
@@ -85,7 +85,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNullItemId() {
+    void shouldThrowExceptionWhenAddBookingWithNullItemIdTest() {
         Long nullItemId = null;
         BookingRequestDto bookingRequestDtoWithNullItemId = BookingRequestDto.builder()
                 .bookerId(bookerId).start(start).end(end).itemId(nullItemId).build();
@@ -95,7 +95,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNullStart() {
+    void shouldThrowExceptionWhenAddBookingWithNullStartTest() {
         String nullStart = null;
         BookingRequestDto bookingRequestDtoWithNullStart = BookingRequestDto.builder()
                 .bookerId(bookerId).start(nullStart).end(end).itemId(itemId).build();
@@ -105,7 +105,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithNullEnd() {
+    void shouldThrowExceptionWhenAddBookingWithNullEndTest() {
         String nullEnd = null;
         BookingRequestDto bookingRequestDtoWithNullEnd = BookingRequestDto.builder()
                 .bookerId(bookerId).start(start).end(nullEnd).itemId(itemId).build();
@@ -115,7 +115,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithStartInPast() {
+    void shouldThrowExceptionWhenAddBookingWithStartInPastTest() {
         start = "2021-08-11T10:10:10";
         BookingRequestDto bookingRequestDtoWithNullEnd = BookingRequestDto.builder()
                 .bookerId(bookerId).start(start).end(end).itemId(itemId).build();
@@ -126,7 +126,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithEndBeforeStart() {
+    void shouldThrowExceptionWhenAddBookingWithEndBeforeStartTest() {
         start = "2023-08-11T10:10:10";
         end = "2024-08-11T10:10:10";
         BookingRequestDto bookingRequestDtoWithEndBeforeStart = BookingRequestDto.builder()
@@ -138,7 +138,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenAddBookingWithStartEqualsEnd() {
+    void shouldThrowExceptionWhenAddBookingWithStartEqualsEndTest() {
         start = "2023-08-11T10:10:10";
         end = "2023-08-11T10:10:10";
         BookingRequestDto bookingRequestDtoWithEndBeforeStart = BookingRequestDto.builder()
@@ -150,7 +150,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void update() {
+    void updateTest() {
         BookingResponseDto resultOfAdding = bookingService.add(bookingRequestDto);
         BookingResponseDto resultOfUpdate = bookingService.update(itemOwnerId, resultOfAdding.getId(), false);
         Assertions.assertEquals(BookingStatus.REJECTED, resultOfUpdate.getStatus());
@@ -159,7 +159,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenOwnerTryToRejectApprovedBooking() {
+    void shouldThrowExceptionWhenOwnerTryToRejectApprovedBookingTest() {
         BookingResponseDto resultOfAdding = bookingService.add(bookingRequestDto);
         BookingResponseDto resultOfUpdate = bookingService.update(itemOwnerId, resultOfAdding.getId(), true);
         Assertions.assertEquals(BookingStatus.APPROVED, resultOfUpdate.getStatus());
@@ -172,7 +172,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void getByIdTest() {
         BookingResponseDto resultOfAdding = bookingService.add(bookingRequestDto);
 
         BookingResponseDto resultOfRequestFromItemOwner = bookingService.getById(itemOwnerId,
@@ -207,7 +207,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getAllBookingsByBookerId() {
+    void getAllBookingsByBookerIdTest() {
         Long bookerId = 1L;
         int from = 0;
         int size = 10;
@@ -247,7 +247,7 @@ class BookingServiceImplTest {
     }
 
     @Test
-    void getAllBookingsByOwnerItems() {
+    void getAllBookingsByOwnerItemsTest() {
         Long itemOwnerId = 1L;
         int from = 0;
         int size = 10;

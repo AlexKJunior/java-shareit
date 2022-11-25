@@ -42,7 +42,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void add() throws Exception {
+    void addTest() throws Exception {
         ItemRequestDto requestDtoForAdd = ItemRequestDto.builder()
                 .id(null).owner(1L).name("Test name").description("Test description").available(true).build();
         ItemRequestDto requestBody = ItemRequestDto.builder()
@@ -63,7 +63,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void update() throws Exception {
+    void updateTest() throws Exception {
         ItemRequestDto requestDtoForUpdate = ItemRequestDto.builder()
                 .id(1L).owner(1L).name("Test name").description("Test description").available(true).build();
         ItemRequestDto requestBody = ItemRequestDto.builder()
@@ -84,7 +84,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void getById() throws Exception {
+    void getByIdTest() throws Exception {
         ItemResponseDto responseDtoForGetById = ItemResponseDto.builder()
                 .id(1L).name("Test name").description("Test description").available(true).build();
 
@@ -100,7 +100,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void findAllByOwner() throws Exception {
+    void findAllByOwnerTest() throws Exception {
         ItemResponseDtoForOwner response1 = ItemResponseDtoForOwner.builder()
                 .id(1L).name("Test name").description("Test description").available(true).build();
         ItemResponseDtoForOwner response2 = ItemResponseDtoForOwner.builder()
@@ -121,7 +121,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void search() throws Exception {
+    void searchTest() throws Exception {
         ItemResponseDto response1 = ItemResponseDto.builder()
                 .id(1L).name("Test name").description("Test description search").available(true).build();
         ItemResponseDto response2 = ItemResponseDto.builder()
@@ -149,7 +149,7 @@ class ItemControllerTest {
     }
 
     @Test
-    void addComment() throws Exception {
+    void addCommentTest() throws Exception {
         CommentRequestDto commentRequestDto = CommentRequestDto.builder()
                 .text("Текст комментария про издедие").author(1L).item(1L).build();
         CommentResponseDto commentResponseDto = CommentResponseDto.builder()

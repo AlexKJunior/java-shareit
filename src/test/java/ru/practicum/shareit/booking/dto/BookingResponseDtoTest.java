@@ -18,7 +18,7 @@ class BookingResponseDtoTest {
     private JacksonTester<BookingResponseDto> json;
 
     @Test
-    void testBookingResponseDto() throws Exception {
+    void testBookingResponseDtoTest() throws Exception {
         UserDto user = UserDto.builder().id(1L).name("UserName").email("User@email.com").build();
         ItemResponseDto item = ItemResponseDto.builder().id(2L).name("ItemName").description("Item description")
                 .available(true).requestId(4L).build();

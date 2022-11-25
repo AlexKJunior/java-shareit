@@ -44,7 +44,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void add() throws Exception {
+    void addTest() throws Exception {
         BookingRequestDto requestDtoForAdd = BookingRequestDto.builder().bookerId(1L).itemId(1L).build();
         BookingRequestDto requestBody = BookingRequestDto.builder().itemId(1L).build();
         BookingResponseDto responseDtoForAdd = BookingResponseDto.builder().id(1L).build();
@@ -61,8 +61,8 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForAdd.getId()), Long.class));
     }
 
-
-    void update() throws Exception {
+    @Test
+    void updateTest() throws Exception {
         BookingResponseDto responseDtoForUpdate = BookingResponseDto.builder().id(1L).build();
 
         when(bookingService.update(1L, 1L, true)).thenReturn(responseDtoForUpdate);
@@ -77,8 +77,8 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForUpdate.getId()), Long.class));
     }
 
-
-    void getById() throws Exception {
+    @Test
+    void getByIdTest() throws Exception {
         BookingResponseDto responseDtoForGetById = BookingResponseDto.builder().id(1L).build();
 
         when(bookingService.getById(1L, 1L)).thenReturn(responseDtoForGetById);
@@ -92,8 +92,8 @@ class BookingControllerTest {
                 .andExpect(jsonPath("$.id", is(responseDtoForGetById.getId()), Long.class));
     }
 
-
-    void getAllBookingsByBookerId() throws Exception {
+    @Test
+    void getAllBookingsByBookerIdTest() throws Exception {
         BookingResponseDto responseDtoForGetAllByBooker = BookingResponseDto.builder().id(1L).build();
         BookingResponseDto responseDtoForGetAllByBooker2 = BookingResponseDto.builder().id(1L).build();
         List<BookingResponseDto> result = List.of(responseDtoForGetAllByBooker, responseDtoForGetAllByBooker2);
@@ -136,7 +136,7 @@ class BookingControllerTest {
     }
 
     @Test
-    void getAllBookingsByOwnerItems() throws Exception {
+    void getAllBookingsByOwnerItemsTest() throws Exception {
         BookingResponseDto responseDtoForGetAllByOwner = BookingResponseDto.builder().id(1L).build();
         BookingResponseDto responseDtoForGetAllByOwner2 = BookingResponseDto.builder().id(1L).build();
         List<BookingResponseDto> result = List.of(responseDtoForGetAllByOwner, responseDtoForGetAllByOwner2);

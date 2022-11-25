@@ -31,7 +31,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void add() {
+    void addTest() {
         UserDto outputUserDto = userService.add(inputUserDto);
         Assertions.assertNotNull(outputUserDto.getId());
         Assertions.assertEquals(inputUserDto.getName(), outputUserDto.getName());
@@ -39,7 +39,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void update() {
+    void updateTest() {
         UserDto outputUserDto = userService.add(inputUserDto);
         Long userId = outputUserDto.getId();
         UserDto userDtoForUpdate = UserDto.builder().id(userId).name(nameForUpdate).email(emailForUpdate).build();
@@ -50,7 +50,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateWithNullUserId() {
+    void shouldThrowExceptionWhenUpdateWithNullUserIdTest() {
         Long userId = null;
         UserDto userDtoForUpdate = UserDto.builder().id(userId).name(nameForUpdate).email(emailForUpdate).build();
         ObjectNotFoundException thrown = Assertions.assertThrows(ObjectNotFoundException.class,
@@ -59,7 +59,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateWithIncorrectUserId() {
+    void shouldThrowExceptionWhenUpdateWithIncorrectUserIdTest() {
         Long userId = 100L;
         UserDto userDtoForUpdate = UserDto.builder().id(userId).name(nameForUpdate).email(emailForUpdate).build();
         ObjectNotFoundException thrown = Assertions.assertThrows(ObjectNotFoundException.class,
@@ -68,7 +68,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void getByIdTest() {
         Long userId = 2L;
         String userName = "User2";
         String userEmail = "User2@email.com";
@@ -88,7 +88,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void getAll() {
+    void getAllTest() {
         int numberOfUsers = 4;
         Long userId = 1L;
         String userName = "User1";
@@ -102,7 +102,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void delete() {
+    void deleteTest() {
         List<UserDto> userDtoList = userService.getAll();
         int numberOfUsers = userDtoList.size();
         UserDto outputUserDto = userService.add(UserDto.builder().name(name).email(email).build());
@@ -123,7 +123,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void checkIsUserInStorage() {
+    void checkIsUserInStorageTest() {
         Long existsUserId = 1L;
         Assertions.assertDoesNotThrow(() -> userService.checkIsObjectInStorage(existsUserId));
 
@@ -139,7 +139,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findById() {
+    void findByIdTest() {
         Long userId = 1L;
         String userName = "User1";
         String userEmail = "User1@email.com";

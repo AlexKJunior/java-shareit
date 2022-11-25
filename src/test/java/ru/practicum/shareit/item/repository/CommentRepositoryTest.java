@@ -17,7 +17,7 @@ class CommentRepositoryTest {
     private CommentRepository commentRepository;
 
     @Test
-    void shouldAddIdWhenSaveNewEntity() {
+    void shouldAddIdWhenSaveNewEntityTest() {
         Comment comment = Comment.builder().text("Comment text").item(1L).author(2L).created(Instant.now()).build();
         Assertions.assertNull(comment.getId());
         commentRepository.save(comment);
@@ -25,25 +25,25 @@ class CommentRepositoryTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullText() {
+    void shouldThrowExceptionWhenSaveNullTextTest() {
         Comment comment = Comment.builder().item(1L).author(2L).created(Instant.now()).build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> commentRepository.save(comment));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullItem() {
+    void shouldThrowExceptionWhenSaveNullItemTest() {
         Comment comment = Comment.builder().text("Comment text").author(2L).created(Instant.now()).build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> commentRepository.save(comment));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullCreated() {
+    void shouldThrowExceptionWhenSaveNullCreatedTest() {
         Comment comment = Comment.builder().text("Comment text").item(1L).author(2L).build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> commentRepository.save(comment));
     }
 
     @Test
-    void findByItem() {
+    void findByItemTest() {
         Long itemId = 1L;
         int numberOfComments = 2;
         List<Comment> result = commentRepository.findByItem(itemId);

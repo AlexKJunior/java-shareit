@@ -20,13 +20,13 @@ class BookingTest {
     private final Booking booking3 = booking1;
 
     @Test
-    void testEquals() {
+    void testEqualsTest() {
         Assertions.assertEquals(booking1, booking3);
         Assertions.assertNotEquals(booking1, booking2);
     }
 
     @Test
-    void testHashCode() {
+    void testHashCodeTest() {
         Assertions.assertEquals(booking1.hashCode(), booking3.hashCode());
         Assertions.assertNotEquals(booking1.hashCode(), booking2.hashCode());
     }

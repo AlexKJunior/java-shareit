@@ -17,7 +17,7 @@ class OutputItemRequestDtoTest {
     private JacksonTester<OutputItemRequestDto> json;
 
     @Test
-    void testOutputItemRequestDto() throws Exception {
+    void testOutputItemRequestDtoTest() throws Exception {
         List<AnswerDto> items = List.of(AnswerDto.builder().id(2L).name("ItemName").description("Item description")
                 .available(true).owner(1L).requestId(4L).build());
 

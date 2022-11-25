@@ -25,7 +25,7 @@ class ItemServiceImplTest {
     private final ItemRepository itemRepository;
 
     @Test
-    void add() {
+    void addTest() {
         String name = "TestItem";
         String description = "Test description";
         Long owner = 1L;
@@ -47,7 +47,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveIncorrectName() {
+    void shouldThrowExceptionWhenSaveIncorrectNameTest() {
         ItemRequestDto itemRequestDtoWithNullName = ItemRequestDto.builder().description("Test description").owner(1L)
                 .available(true).build();
         ConstraintViolationException thrown = Assertions.assertThrows(ConstraintViolationException.class,
@@ -68,7 +68,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveIncorrectDescription() {
+    void shouldThrowExceptionWhenSaveIncorrectDescriptionTest() {
         ItemRequestDto itemRequestDtoWithNullDescription = ItemRequestDto.builder().name("TestItem").owner(1L)
                 .available(true).build();
         ConstraintViolationException thrown = Assertions.assertThrows(ConstraintViolationException.class,
@@ -90,7 +90,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullAvailable() {
+    void shouldThrowExceptionWhenSaveNullAvailableTest() {
         ItemRequestDto itemRequestDto = ItemRequestDto.builder().name("TestItem").description("Test description")
                 .owner(1L).build();
         ConstraintViolationException thrown = Assertions.assertThrows(ConstraintViolationException.class,
@@ -99,7 +99,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullOwner() {
+    void shouldThrowExceptionWhenSaveNullOwnerTest() {
         ItemRequestDto itemRequestDtoWithNullOwner = ItemRequestDto.builder().name("TestItem")
                 .description("Test description").available(true).build();
         ConstraintViolationException thrown = Assertions.assertThrows(ConstraintViolationException.class,
@@ -109,7 +109,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void update() {
+    void updateTest() {
         String name = "TestItem";
         String description = "Test description";
         Long owner = 1L;
@@ -131,7 +131,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateWithNotOwner() {
+    void shouldThrowExceptionWhenUpdateWithNotOwnerTest() {
         Long itemId = 1L;
         Long owner = 2L;
         String name = "TestItem";
@@ -146,7 +146,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateWithNullOwner() {
+    void shouldThrowExceptionWhenUpdateWithNullOwnerTest() {
         Long itemId = 1L;
         Long owner = null;
         String name = "TestItem";
@@ -160,7 +160,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateWithNullItemId() {
+    void shouldThrowExceptionWhenUpdateWithNullItemIdTest() {
         Long itemId = null;
         Long owner = 1L;
         String name = "TestItem";
@@ -174,7 +174,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void getByIdTest() {
         Long itemId = 1L;
         Long ownerId = 1L;
         Long anotherUserId = 2L;
@@ -196,7 +196,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void getAllByOwner() {
+    void getAllByOwnerTest() {
         Long ownerId = 1L;
         int numberOfItems = 2;
         int pageSize = 10;
@@ -222,7 +222,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void addComment() {
+    void addCommentTest() {
         Long authorId = 4L;
         String authorName = "User4";
         Long itemId = 2L;
@@ -238,7 +238,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithAuthorWhoNotBookedItemBefore() {
+    void shouldThrowExceptionWhenSaveCommentWithAuthorWhoNotBookedItemBeforeTest() {
         Long authorId = 3L;
         Long itemId = 3L;
         String textOfComment = "Text of comment";
@@ -251,7 +251,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWhenAuthorIsOwnerOfItem() {
+    void shouldThrowExceptionWhenSaveCommentWhenAuthorIsOwnerOfItemTest() {
         Long authorId = 2L;
         Long itemId = 3L;
         String textOfComment = "Text of comment";
@@ -264,7 +264,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithNotExistsAuthorId() {
+    void shouldThrowExceptionWhenSaveCommentWithNotExistsAuthorIdTest() {
         Long authorId = 100L;
         Long itemId = 3L;
         String textOfComment = "Text of comment";
@@ -276,7 +276,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithNullAuthorId() {
+    void shouldThrowExceptionWhenSaveCommentWithNullAuthorIdTest() {
         Long authorId = null;
         Long itemId = 3L;
         String textOfComment = "Text of comment";
@@ -289,7 +289,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithNotExistsItemId() {
+    void shouldThrowExceptionWhenSaveCommentWithNotExistsItemIdTest() {
         Long authorId = 1L;
         Long itemId = 100L;
         String textOfComment = "Text of comment";
@@ -301,7 +301,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithNullItemId() {
+    void shouldThrowExceptionWhenSaveCommentWithNullItemIdTest() {
         Long authorId = 1L;
         Long itemId = null;
         String textOfComment = "Text of comment";
@@ -314,7 +314,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithNullText() {
+    void shouldThrowExceptionWhenSaveCommentWithNullTextTest() {
         Long authorId = 1L;
         Long itemId = 3L;
         String textOfComment = null;
@@ -327,7 +327,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithEmptyText() {
+    void shouldThrowExceptionWhenSaveCommentWithEmptyTextTest() {
         Long authorId = 1L;
         Long itemId = 3L;
         String textOfComment = "";
@@ -340,7 +340,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveCommentWithBlankText() {
+    void shouldThrowExceptionWhenSaveCommentWithBlankTextTest() {
         Long authorId = 1L;
         Long itemId = 3L;
         String textOfComment = " ";
@@ -353,7 +353,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void search() {
+    void searchTest() {
         String textForSearch = "search";
         int pageSize = 10;
         int firsPageNumber = 0;
@@ -372,28 +372,28 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void shouldReturnEmptyListIfTextForSearchIsNull() {
+    void shouldReturnEmptyListIfTextForSearchIsNullTest() {
         String textForSearch = null;
         List<ItemResponseDto> result = itemService.search(textForSearch, 0, 10);
         Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
-    void shouldReturnEmptyListIfTextForSearchIsEmpty() {
+    void shouldReturnEmptyListIfTextForSearchIsEmptyTest() {
         String textForSearch = "";
         List<ItemResponseDto> result = itemService.search(textForSearch, 0, 10);
         Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
-    void shouldReturnEmptyListIfTextForSearchIsBlank() {
+    void shouldReturnEmptyListIfTextForSearchIsBlankTest() {
         String textForSearch = " ";
         List<ItemResponseDto> result = itemService.search(textForSearch, 0, 10);
         Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
-    void delete() {
+    void deleteTest() {
         List<Item> listOfItems = itemRepository.findAll();
         int lengthOfList = listOfItems.size();
         ItemRequestDto itemRequestDto = ItemRequestDto.builder().name("TestItem").description("Test description")
@@ -407,7 +407,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void checkIsItemInStorage() {
+    void checkIsItemInStorageTest() {
         Long existsItemId = 1L;
         Long notExistsItemId = 100L;
         Assertions.assertDoesNotThrow(() -> itemService.checkIsItemInStorage(existsItemId));
@@ -417,7 +417,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void checkIsItemAvailable() {
+    void checkIsItemAvailableTest() {
         Long availableItemId = 1L;
         Long unAvailableItemId = 2L;
         Assertions.assertDoesNotThrow(() -> itemService.checkIsItemAvailable(availableItemId));
@@ -427,7 +427,7 @@ class ItemServiceImplTest {
     }
 
     @Test
-    void findById() {
+    void findByIdTest() {
         Long existsItemId = 1L;
         Item result = itemService.findById(existsItemId);
         Assertions.assertEquals("Item1", result.getName());

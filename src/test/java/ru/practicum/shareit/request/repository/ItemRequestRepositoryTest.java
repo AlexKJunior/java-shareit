@@ -20,7 +20,7 @@ class ItemRequestRepositoryTest {
     ItemRequestRepository itemRequestRepository;
 
     @Test
-    void shouldAddIdWhenSaveNewEntity() {
+    void shouldAddIdWhenSaveNewEntityTest() {
         ItemRequest itemRequest = ItemRequest.builder().requestor(1L).description("ItemRequest description")
                 .created(Instant.now()).build();
         Assertions.assertNull(itemRequest.getId());
@@ -29,26 +29,26 @@ class ItemRequestRepositoryTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullRequestor() {
+    void shouldThrowExceptionWhenSaveNullRequestorTest() {
         ItemRequest itemRequest = ItemRequest.builder().description("ItemRequest description")
                 .created(Instant.now()).build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> itemRequestRepository.save(itemRequest));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullDescription() {
+    void shouldThrowExceptionWhenSaveNullDescriptionTest() {
         ItemRequest itemRequest = ItemRequest.builder().requestor(1L).created(Instant.now()).build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> itemRequestRepository.save(itemRequest));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullCreated() {
+    void shouldThrowExceptionWhenSaveNullCreatedTest() {
         ItemRequest itemRequest = ItemRequest.builder().requestor(1L).description("ItemRequest description").build();
         Assertions.assertThrows(DataIntegrityViolationException.class, () -> itemRequestRepository.save(itemRequest));
     }
 
     @Test
-    void findAllByRequestorOrderByCreatedDesc() {
+    void findAllByRequestorOrderByCreatedDescTest() {
         Long requestorId = 1L;
         int numberOfRequests = 3;
         List<ItemRequest> result = itemRequestRepository.findAllByRequestorOrderByCreatedDesc(requestorId);
@@ -59,7 +59,7 @@ class ItemRequestRepositoryTest {
     }
 
     @Test
-    void findAllByRequestorNot() {
+    void findAllByRequestorNotTest() {
         Long requestorId = 1L;
         int numberOfRequests = 2;
         Page<ItemRequest> oneRequestPage = itemRequestRepository.findAllByRequestorNot(

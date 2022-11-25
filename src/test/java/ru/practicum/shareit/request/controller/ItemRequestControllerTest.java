@@ -45,7 +45,7 @@ class ItemRequestControllerTest {
     }
 
     @Test
-    void add() throws Exception {
+    void addTest() throws Exception {
         InputItemRequestDto requestDtoForAdd = InputItemRequestDto.builder().requestor(1L).description("Description").build();
         InputItemRequestDto requestBody = InputItemRequestDto.builder().description("Description").build();
         OutputItemRequestDto responseDtoForAdd = OutputItemRequestDto.builder().id(1L).description("Description").build();
@@ -72,7 +72,7 @@ class ItemRequestControllerTest {
     }
 
     @Test
-    void getAllOwn() throws Exception {
+    void getAllOwnTest() throws Exception {
         OutputItemRequestDto responseDtoForAdd = OutputItemRequestDto.builder().id(1L).description("Description").build();
         OutputItemRequestDto responseDtoForAdd2 = OutputItemRequestDto.builder().id(2L).description("Description2").build();
         List<OutputItemRequestDto> result = List.of(responseDtoForAdd, responseDtoForAdd2);
@@ -89,7 +89,7 @@ class ItemRequestControllerTest {
     }
 
     @Test
-    void getAll() throws Exception {
+    void getAllTest() throws Exception {
         OutputItemRequestDto responseDtoForAdd = OutputItemRequestDto.builder().id(1L).description("Description")
                 .build();
         OutputItemRequestDto responseDtoForAdd2 = OutputItemRequestDto.builder().id(2L).description("Description2")
@@ -121,7 +121,7 @@ class ItemRequestControllerTest {
     }
 
     @Test
-    void getById() throws Exception {
+    void getByIdTest() throws Exception {
         OutputItemRequestDto responseDtoForAdd = OutputItemRequestDto.builder().id(1L).description("Description").build();
 
         when(itemRequestService.getById(1L, 1L)).thenReturn(responseDtoForAdd);

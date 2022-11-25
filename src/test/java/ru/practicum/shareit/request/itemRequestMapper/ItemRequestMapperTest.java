@@ -21,7 +21,7 @@ class ItemRequestMapperTest {
     private final ItemRequestService itemRequestService;
 
     @Test
-    void inputItemRequestDtoToEntity() {
+    void inputItemRequestDtoToEntityTest() {
         InputItemRequestDto inputItemRequestDto = InputItemRequestDto.builder().requestor(1L).description("Description")
                 .build();
 
@@ -35,7 +35,7 @@ class ItemRequestMapperTest {
     }
 
     @Test
-    void entityToOutputItemRequestDto() {
+    void entityToOutputItemRequestDtoTest() {
         Long requestId = 1L;
         String description = "Request1 description";
         String created = "2022-01-01T10:10:10";

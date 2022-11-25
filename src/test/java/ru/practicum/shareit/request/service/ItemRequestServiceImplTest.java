@@ -25,7 +25,7 @@ class ItemRequestServiceImplTest {
     private final Long requestId = 5L;
 
     @Test
-    void add() {
+    void addTest() {
         InputItemRequestDto inputItemRequestDto = InputItemRequestDto.builder().description(description)
                 .requestor(requestor).build();
         OutputItemRequestDto outputItemRequestDto = itemRequestService.add(inputItemRequestDto);
@@ -34,7 +34,7 @@ class ItemRequestServiceImplTest {
     }
 
     @Test
-    void getAllOwn() {
+    void getAllOwnTest() {
         int numberOfRequests = 2;
         List<OutputItemRequestDto> result = itemRequestService.getAllOwn(requestor);
         Assertions.assertEquals(numberOfRequests, result.size());
@@ -47,7 +47,7 @@ class ItemRequestServiceImplTest {
     }
 
     @Test
-    void getAll() {
+    void getAllTest() {
         int numberOfRequests = 3;
         int from = 0;
         int size = 10;
@@ -73,7 +73,7 @@ class ItemRequestServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void getByIdTest() {
         description = "Request5 description";
         OutputItemRequestDto outputItemRequestDto = itemRequestService.getById(requestor, requestId);
         Assertions.assertEquals(requestId, outputItemRequestDto.getId());
@@ -102,7 +102,7 @@ class ItemRequestServiceImplTest {
     }
 
     @Test
-    void findById() {
+    void findByIdTest() {
         description = "Request5 description";
         ItemRequest itemRequest = itemRequestService.findById(requestId);
         Assertions.assertEquals(requestId, itemRequest.getId());

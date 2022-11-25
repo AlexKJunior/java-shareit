@@ -12,13 +12,13 @@ class CommentTest {
     private final Comment comment3 = comment1;
 
     @Test
-    void testEquals() {
+    void testEqualsTest() {
         Assertions.assertEquals(comment1, comment3);
         Assertions.assertNotEquals(comment1, comment2);
     }
 
     @Test
-    void testHashCode() {
+    void testHashCodeTest() {
         Assertions.assertEquals(comment1.hashCode(), comment3.hashCode());
         Assertions.assertNotEquals(comment1.hashCode(), comment2.hashCode());
     }

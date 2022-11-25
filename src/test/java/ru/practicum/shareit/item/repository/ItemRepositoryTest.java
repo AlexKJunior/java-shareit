@@ -18,7 +18,7 @@ class ItemRepositoryTest {
     private ItemRepository itemRepository;
 
     @Test
-    void shouldAddIdWhenSaveNewEntity() {
+    void shouldAddIdWhenSaveNewEntityTest() {
         Item item = Item.builder().name("ItemName").description("Item description").owner(1L).available(true).build();
         Assertions.assertNull(item.getId());
         itemRepository.save(item);
@@ -26,31 +26,31 @@ class ItemRepositoryTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullName() {
+    void shouldThrowExceptionWhenSaveNullNameTest() {
         Item item = Item.builder().description("Item description").owner(1L).available(true).build();
         Assertions.assertThrows(ConstraintViolationException.class, () -> itemRepository.save(item));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullDescription() {
+    void shouldThrowExceptionWhenSaveNullDescriptionTest() {
         Item item = Item.builder().name("ItemName").owner(1L).available(true).build();
         Assertions.assertThrows(ConstraintViolationException.class, () -> itemRepository.save(item));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullAvailable() {
+    void shouldThrowExceptionWhenSaveNullAvailableTest() {
         Item item = Item.builder().name("ItemName").description("Item description").owner(1L).build();
         Assertions.assertThrows(ConstraintViolationException.class, () -> itemRepository.save(item));
     }
 
     @Test
-    void shouldThrowExceptionWhenSaveNullOwner() {
+    void shouldThrowExceptionWhenSaveNullOwnerTest() {
         Item item = Item.builder().name("ItemName").description("Item description").available(true).build();
         Assertions.assertThrows(ConstraintViolationException.class, () -> itemRepository.save(item));
     }
 
     @Test
-    void shouldFindAllByOwner() {
+    void shouldFindAllByOwnerTest() {
         Long owner = 2L;
         int numberOfItemsOfUser = 2;
         Long firstIdOfItemOfOwner = 3L;
@@ -65,7 +65,7 @@ class ItemRepositoryTest {
     }
 
     @Test
-    void search() {
+    void searchTest() {
         String text = "search";
         int numberIfItemSuitsForSearch = 3;
         Page<Item> oneItemPage = itemRepository.search(text, PageRequest.of(0, 1, Sort.by("id")));

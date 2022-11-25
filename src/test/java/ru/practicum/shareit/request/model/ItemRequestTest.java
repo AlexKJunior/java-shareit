@@ -18,13 +18,13 @@ class ItemRequestTest {
     private final ItemRequest itemRequest3 = itemRequest1;
 
     @Test
-    void testEquals() {
+    void testEqualsTest() {
         Assertions.assertEquals(itemRequest1, itemRequest3);
         Assertions.assertNotEquals(itemRequest1, itemRequest2);
     }
 
     @Test
-    void testHashCode() {
+    void testHashCodeTest() {
         Assertions.assertEquals(itemRequest1.hashCode(), itemRequest3.hashCode());
         Assertions.assertNotEquals(itemRequest1.hashCode(), itemRequest2.hashCode());
     }

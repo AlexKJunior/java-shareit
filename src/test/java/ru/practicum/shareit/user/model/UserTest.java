@@ -9,13 +9,13 @@ class UserTest {
     private final User user3 = user1;
 
     @Test
-    void testEquals() {
+    void testEqualsTest() {
         Assertions.assertEquals(user1, user3);
         Assertions.assertNotEquals(user1, user2);
     }
 
     @Test
-    void testHashCode() {
+    void testHashCodeTest() {
         Assertions.assertEquals(user1.hashCode(), user3.hashCode());
         Assertions.assertNotEquals(user1.hashCode(), user2.hashCode());
     }

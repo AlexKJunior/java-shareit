@@ -20,7 +20,7 @@ class BookingRepositoryTest {
     private BookingRepository bookingRepository;
 
     @Test
-    void findAllByBookerId() {
+    void findAllByBookerIdTest() {
         Long bookerId = 1L;
         int numberOfBookings = 4;
         Page<Booking> oneBookingPage = bookingRepository.findAllByBookerId(
@@ -32,7 +32,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByBookerIdAndStartBeforeAndEndAfter() {
+    void findAllByBookerIdAndStartBeforeAndEndAfterTest() {
         Long bookerId = 1L;
         int numberOfBookings = 1;
         Long correctBookingId = 3L;
@@ -44,7 +44,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByBookerIdAndStartAfter() {
+    void findAllByBookerIdAndStartAfterTest() {
         Long bookerId = 1L;
         int numberOfBookings = 1;
         Long correctBookingId = 5L;
@@ -56,7 +56,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByBookerIdAndEndBefore() {
+    void findAllByBookerIdAndEndBeforeTest() {
         Long bookerId = 1L;
         int numberOfBookings = 2;
         Long correctBookingId = 1L;
@@ -68,7 +68,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByBookerIdAndStatus() {
+    void findAllByBookerIdAndStatusTest() {
         Long bookerId = 1L;
         int numberOfBookings = 2;
         BookingStatus status = BookingStatus.WAITING;
@@ -78,7 +78,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemOwner() {
+    void findAllByItemOwnerTest() {
         Long itemOwner = 1L;
         int numberOfBookings = 4;
         Page<Booking> oneBookingPage = bookingRepository.findAllByItemOwner(
@@ -90,7 +90,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemOwnerAndStartLessThanAndEndGreaterThan() {
+    void findAllByItemOwnerAndStartLessThanAndEndGreaterThanTest() {
         Long itemOwner = 1L;
         int numberOfBookings = 1;
         Long correctBookingId = 4L;
@@ -102,7 +102,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemOwnerAndStartGreaterThan() {
+    void findAllByItemOwnerAndStartGreaterThanTest() {
         Long itemOwner = 1L;
         int numberOfBookings = 1;
         Long correctBookingId = 6L;
@@ -114,7 +114,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemOwnerAndEndLessThan() {
+    void findAllByItemOwnerAndEndLessThanTest() {
         Long itemOwner = 1L;
         int numberOfBookings = 2;
         Long correctBookingId = 2L;
@@ -126,7 +126,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemOwnerAndStatus() {
+    void findAllByItemOwnerAndStatusTest() {
         Long itemOwner = 1L;
         int numberOfBookings = 2;
         BookingStatus status = BookingStatus.WAITING;
@@ -136,7 +136,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemIdAndEndBeforeOrderByEndDesc() {
+    void findAllByItemIdAndEndBeforeOrderByEndDescTest() {
         Long itemId = 3L;
         int numberOfBookings = 2;
         Long correctBookingId = 1L;
@@ -147,7 +147,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByItemIdAndEndAfterOrderByEndDesc() {
+    void findAllByItemIdAndEndAfterOrderByEndDescTest() {
         Long itemId = 3L;
         int numberOfBookings = 2;
         Long correctBookingId = 5L;
@@ -158,7 +158,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findAllByBookerIdAndItemIdAndEndIsBefore() {
+    void findAllByBookerIdAndItemIdAndEndIsBeforeTest() {
         Long bookerId = 1L;
         Long itemId = 3L;
         BookingStatus statusRejected = BookingStatus.REJECTED;
@@ -184,7 +184,7 @@ class BookingRepositoryTest {
     }
 
     @Test
-    void findByItemIdAndEndAfterAndStartBeforeOrderByStartDesc() {
+    void findByItemIdAndEndAfterAndStartBeforeOrderByStartDescTest() {
         Long itemId = 3L;
         Long correctBookingId = 3L;
         Instant currentTime = Instant.now();
