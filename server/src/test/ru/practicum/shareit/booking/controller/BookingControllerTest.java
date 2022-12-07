@@ -41,7 +41,6 @@ class BookingControllerTest {
                 .standaloneSetup(bookingController)
                 .setControllerAdvice(ErrorHandler.class)
                 .build();
-
     }
 
     @Test
