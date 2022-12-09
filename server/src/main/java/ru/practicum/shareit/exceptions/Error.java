@@ -1,5 +1,7 @@
 package ru.practicum.shareit.exceptions;
 
+import lombok.*;
+
 public class Error {
     private final String error;
 
