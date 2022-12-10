@@ -2,14 +2,8 @@ package ru.practicum.shareit.exceptions;
 
 import lombok.*;
 
+@Getter
+@AllArgsConstructor
 public class Error {
     private final String error;
-
-    public Error(String error) {
-        this.error = error;
-    }
-
-    public String getError() {
-        return error;
-    }
 }
